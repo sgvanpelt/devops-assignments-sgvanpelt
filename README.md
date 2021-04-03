@@ -18,6 +18,7 @@ docker network create devops-assignments
 docker run --name mongo -d --rm --network devops-assignments -p 27017:27017 mongo:latest
 
 -- voor mongo die container verwijderd waardoor data kwijt is:
+
 docker run --rm -p 3000:3000 --network devops-assignments ${pwd}/data:/data/db --env DB=mongo --name api api
 
 # Api
@@ -27,3 +28,17 @@ docker run --rm -p 3000:3000 --network devops-assignments --env DB=mongo --name 
 # Frontend
 
 docker run --rm -p 4200:4200 --name frontend frontend
+
+# Week 4
+docker-compose up --build
+
+# Week 5
+docker swarm init
+
+docker node ls 
+
+docker stack deploy --compose-file docker-compose.yml sockshop
+
+docker stack rm sockshop
+
+docker swarm leave --force
