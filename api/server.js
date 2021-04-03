@@ -20,7 +20,7 @@ console.log('connection string', environment.mongodb.uri);
 console.log('secret', environment.secret);
 mongoose.connect(environment.mongodb.uri, {
   useUnifiedTopology: true,
-  useNewUrlParser: true
+  useNewUrlParser: true,
 });
 mongoose.Promise = global.Promise;
 
@@ -45,7 +45,7 @@ const allowedExt = [
   '.woff',
   '.ttf',
   '.svg',
-  '.webmanifest'
+  '.webmanifest',
 ];
 
 // Import routes
@@ -59,12 +59,12 @@ app.use(
     getToken: (req) => {
       if (req.headers.authorization && req.headers.authorization.split(' ')[0] === 'Bearer') {
         return req.headers.authorization.split(' ')[1];
-      } else if (req.query && req.query.token) {
+      } if (req.query && req.query.token) {
         return req.query.token;
       }
       return null;
-    }
-  }).unless({ path: ['/api/user/authenticate', '/api/users', '/index.html'] })
+    },
+  }).unless({ path: ['/api/user/authenticate', '/api/users', '/index.html'] }),
 );
 
 // Use Api routes in the App

@@ -15,5 +15,5 @@ uri += `${host}:${port}/${database}${params}`;
 
 module.exports = {
   mongodb: { uri },
-  secret: secret
+  secret,
 };

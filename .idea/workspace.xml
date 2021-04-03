@@ -2,7 +2,18 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="bd458cf1-45a0-4319-9805-2f5f39db53d7" name="Default Changelist" comment="">
-      <change beforePath="$PROJECT_DIR$/frontend/src/app/feature/user/profile/profile.component.html" beforeDir="false" afterPath="$PROJECT_DIR$/frontend/src/app/feature/user/profile/profile.component.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/api/api-routes.js" beforeDir="false" afterPath="$PROJECT_DIR$/api/api-routes.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/api/config/environment.js" beforeDir="false" afterPath="$PROJECT_DIR$/api/config/environment.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/api/controllers/contact.controller.js" beforeDir="false" afterPath="$PROJECT_DIR$/api/controllers/contact.controller.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/api/controllers/users.controller.js" beforeDir="false" afterPath="$PROJECT_DIR$/api/controllers/users.controller.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/api/models/contact.model.js" beforeDir="false" afterPath="$PROJECT_DIR$/api/models/contact.model.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/api/models/user.model.js" beforeDir="false" afterPath="$PROJECT_DIR$/api/models/user.model.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/api/package-lock.json" beforeDir="false" afterPath="$PROJECT_DIR$/api/package-lock.json" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/api/package.json" beforeDir="false" afterPath="$PROJECT_DIR$/api/package.json" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/api/server.js" beforeDir="false" afterPath="$PROJECT_DIR$/api/server.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/api/tests/contact.controller.spec.js" beforeDir="false" afterPath="$PROJECT_DIR$/api/tests/contact.controller.spec.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/api/tests/db-handler.js" beforeDir="false" afterPath="$PROJECT_DIR$/api/tests/db-handler.js" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -39,7 +50,7 @@
       <option name="presentableId" value="Default" />
       <updated>1617455882809</updated>
       <workItem from="1617455884093" duration="347000" />
-      <workItem from="1617456234721" duration="271000" />
+      <workItem from="1617456234721" duration="1155000" />
     </task>
     <servers />
   </component>
