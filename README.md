@@ -27,3 +27,13 @@ docker run --rm -p 3000:3000 --network devops-assignments --env DB=mongo --name 
 # Frontend
 
 docker run --rm -p 4200:4200 --name frontend frontend
+
+# Week 4
+docker-compose up --build
+
+# Week 5
+docker swarm init
+docker node ls 
+docker stack deploy --compose-file docker-compose.yml sockshop
+docker stack rm sockshop
+docker swarm leave --force
