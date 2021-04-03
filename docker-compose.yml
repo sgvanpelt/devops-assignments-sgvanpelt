@@ -1,0 +1,53 @@
+version: '3.9'
+
+services:
+  frontend:
+    build: ./frontend
+    networks:
+      - devops-assignments
+    volumes:
+      - ./frontend:/app
+    ports:
+      - 4200:4200
+  api:
+    build: ./api
+    environment:
+      db_username: admin
+      db_password: MyLittleSecret
+      DB: Connections
+      params: "?authSource=admin"
+      EXPRESS_PORT: 5000
+    networks:
+      - devops-assignments
+    ports:
+      - 3000:3000
+  servicebus:
+    image: nginx:latest
+    container_name: servicebus
+    volumes:
+      - ./nginx.conf:/etc/nginx.conf
+      - ./nginx/logs/:/var/log/nginx/
+    ports:
+      - 8080:80
+    depends_on:
+      - db
+      - api
+      - frontend
+    networks:
+      - devops-assignments
+
+  db:
+    container_name: db
+    image: mongo:latest
+    volumes:
+      - ./data:/data/db
+    environment:
+      MONGO_INITDB_ROOT_USERNAME: admin
+      MONGO_INITDB_ROOT_PASSWORD: MyLittleSecret
+      MONGO_INITDB_DATABASE: Connections
+    ports:
+      - 27017:27017
+    networks:
+      - devops-assignments
+networks:
+  devops-assignments:
