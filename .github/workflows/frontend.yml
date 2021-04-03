@@ -38,7 +38,7 @@ jobs:
         
       - name: Run eslint
         working-directory: ./frontend
-        run: npx eslint .
+        run: yarn run eslint
       
       - name: Run tests
         working-directory: ./frontend
