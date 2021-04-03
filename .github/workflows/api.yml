@@ -17,18 +17,34 @@ jobs:
     defaults:
       run:
         working-directory: api
+        
     strategy:
       matrix:
         node-version: [10.x, 12.x]
+        
     steps:
       - uses: actions/checkout@v2
       - name: Use Node.js
         uses: actions/setup-node@v1
         with:
           node-version: ${{ matrix.node-version }}
-      - name: Run commands
-        run: | 
-          npm ci
-          npm run build --if-present
-          yarn run eslint .
-          npm test
+          
+      - name: Install clean project
+        working-directory: ./api     
+        run: npm ci
+        
+      - name: Create project build
+        working-directory: ./api     
+        run: npm run build --if-present
+      
+      - name: Install eslint
+        working-directory: ./api
+        run: yarn add eslint
+        
+      - name: Run eslint
+        working-directory: ./api     
+        run: yarn run eslint
+        
+      - name: Run Tests
+        working-directory: ./api     
+        run: npm test
