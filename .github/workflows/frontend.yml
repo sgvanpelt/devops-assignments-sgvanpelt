@@ -46,7 +46,6 @@ jobs:
         
       - name: Create prod build
         run: |
-          cd frontend
           npm run build:prod
           cd ..
           zip -r dist.zip ./frontend/dist
