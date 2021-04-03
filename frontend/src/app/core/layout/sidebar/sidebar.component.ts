@@ -10,14 +10,13 @@ import { UserService } from "../../services";
   styleUrls: ["./sidebar.component.scss"]
 })
 export class SidebarComponent implements OnInit {
+  @Output() collapsedEvent = new EventEmitter<boolean>();
   isActive: boolean;
   collapsed: boolean;
   showMenu: string;
   pushRightClass: string;
 
   user: User;
-
-  @Output() collapsedEvent = new EventEmitter<boolean>();
 
   constructor(
     public router: Router,
