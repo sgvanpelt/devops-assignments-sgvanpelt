@@ -1,6 +1,7 @@
 name: Api CI
 
 on:
+  workflow_dispatch:
   push:
     paths:
       - 'api/'
