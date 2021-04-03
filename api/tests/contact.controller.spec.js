@@ -29,14 +29,14 @@ describe('ContactController', () => {
     const firstName = 'henk';
     const res = await request(app)
       .post('/contacts')
-      .send({ firstName, lastName: 'test2', mobile: '12345566' });
+      .send({ firstName, lastName: 'test', mobile: '12345566' });
     expect(res.status).toBe(201);
     expect(res.body).toHaveProperty('data');
     expect(res.body.data.firstName).toBe(firstName);
 
     const foundContact = await ContactModel.find({ firstName });
     expect(foundContact).toHaveLength(1);
-    expect(foundContact.lastName).toBe('test');
+    expect(foundContact[0].lastName).toBe('test');
 
     done();
   });
