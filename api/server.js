@@ -13,11 +13,25 @@ const expressJwt = require('express-jwt');
 // Import Mongoose
 const mongoose = require('mongoose');
 
+const promBundle = require('express-prom-bundle');
 const environment = require('./config/environment');
+
+const metricMiddleware = promBundle({
+  includePath: true,
+  includeStatusCode: true,
+  normalizePath: true,
+  promClient: {
+    collectDefaultMetrics: {
+
+    }
+  }
+});
 
 app.use(cors());
 app.use(bodyParser.urlencoded({ extended: true }));
 app.use(bodyParser.json());
+
+app.use(metricMiddleware)
 
 // Connect to Mongoose and set connection variable
 // MongoDB connection

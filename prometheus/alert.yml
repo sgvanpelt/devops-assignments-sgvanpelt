@@ -1,0 +1,9 @@
+groups:
+  - name: DevOpsAlerts
+    rules:
+      - alert: "On api down"
+        expr: up{job="api"} < 1
+        for: 30s
+      - alert: "API slow"
+        expr: http_request_duration_seconds_sum{job="api", path="/uses/slow"} > 2
+        for: 20s

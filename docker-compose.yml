@@ -20,7 +20,7 @@ services:
     networks:
       - devops-assignments
     ports:
-      - 3000:3000
+      - 5000:5000
   servicebus:
     image: nginx:latest
     container_name: servicebus
@@ -49,5 +49,25 @@ services:
       - 27017:27017
     networks:
       - devops-assignments
+
+  prometheus:
+    image: prom/prometheus:latest
+    container_name: prometheus
+    volumes:
+      - ./prometheus:/etc/prometheus
+      - prometheus-data:/prometheus
+    ports:
+      - 9090:9090
+    command: --web.enable-lifecycle --config.file=/etc/prometheus/prometheus.yml
+    depends_on:
+      - db
+      - api
+      - frontend
+    networks:
+      - devops-assignments
+
+volumes:
+  prometheus-data:
+
 networks:
   devops-assignments:
