@@ -2,7 +2,7 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="bd458cf1-45a0-4319-9805-2f5f39db53d7" name="Default Changelist" comment="">
-      <change beforePath="$PROJECT_DIR$/api/tests/contact.controller.spec.js" beforeDir="false" afterPath="$PROJECT_DIR$/api/tests/contact.controller.spec.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/frontend/src/app/feature/user/profile/profile.component.html" beforeDir="false" afterPath="$PROJECT_DIR$/frontend/src/app/feature/user/profile/profile.component.html" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -39,7 +39,7 @@
       <option name="presentableId" value="Default" />
       <updated>1617455882809</updated>
       <workItem from="1617455884093" duration="347000" />
-      <workItem from="1617456234721" duration="39000" />
+      <workItem from="1617456234721" duration="271000" />
     </task>
     <servers />
   </component>
