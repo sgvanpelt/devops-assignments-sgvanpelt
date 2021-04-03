@@ -17,18 +17,58 @@ jobs:
     defaults:
       run:
         working-directory: frontend
+        
     strategy:
       matrix:
         node-version: [10.x, 12.x]
+        
     steps:
       - uses: actions/checkout@v2
       - name: Use Node.js
         uses: actions/setup-node@v1
         with:
           node-version: ${{ matrix.node-version }}        
-      - name: Run commands
-        run: | 
-          npm ci
-          npm run build --if-present
-          yarn run eslint .
-          npm test
+      - name: Install project dependecies
+        working-directory: ./frontend
+        run: npm install
+      
+      - name: Create prod build
+        working-directory: ./frontend
+        run: npm run build:prod
+        
+      - name: Run eslint
+        working-directory: ./frontend
+        run: npx eslint .
+      
+      - name: Run tests
+        working-directory: ./frontend
+        run: npm test
+        
+      - name: Create prod build
+        run: |
+          cd frontend
+          npm run build:prod
+          cd ..
+          zip -r dist.zip ./frontend/dist
+          
+      - name: Create build release
+        id: create_release
+        uses: actions/create-release@v1
+        env:
+          GITHUB_TOKEN: ${{ secrets.ACCESS_TOKEN }}
+        with:
+          tag_name: ${{ github.ref }}
+          release_name: ${{ github.ref }}
+          draft: false
+          prerelease: false
+          
+      - name: Upload release
+        id: upload-release
+        uses: actions/upload-release-asset@v1
+        env:
+          GITHUB_TOKEN: ${{ secrets.ACCESS_TOKEN }}
+        with:
+          upload_url: ${{ steps.create_release.outputs.upload_url }}
+          asset_path: ./dist.zip
+          asset_name: dist
+          asset_content_type: application/zip
