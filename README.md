@@ -42,3 +42,6 @@ docker stack deploy --compose-file docker-compose.yml sockshop
 docker stack rm sockshop
 
 docker swarm leave --force
+
+# Week 6
+docker-compose up -d
